@@ -1,6 +1,6 @@
-# grunt-rev [![Build Status](https://travis-ci.org/cbas/grunt-rev.png)](https://travis-ci.org/cbas/grunt-rev)
+# grunt-esl-config-rev
 
-> Static file asset revisioning through content hashing
+> Hash AMD JS Module file, save hash config in config.js 
 
 ## Getting Started
 _If you haven't used [grunt][] before, be sure to check out the [Getting Started][] guide._
@@ -8,7 +8,7 @@ _If you haven't used [grunt][] before, be sure to check out the [Getting Started
 From the same directory as your project's [Gruntfile][Getting Started] and [package.json][], install this plugin with the following command:
 
 ```bash
-npm install grunt-rev --save-dev
+npm install grunt-esl-v --save-dev
 ```
 
 Once that's done, add this line to your project's Gruntfile:
