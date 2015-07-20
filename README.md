@@ -31,7 +31,8 @@ grunt.initConfig({
   eslrev: {
     configjs: {
       options: {
-          map_tpl: './js/config.js.tpl'
+          map_tpl: './js/config.js.tpl',
+          prefix: ''
       },
       files: [
           {
@@ -50,4 +51,9 @@ grunt.initConfig({
 #### options.map_tpl
 Type: `String`
 Path of hash map template file.
+
+#### options.prefix
+Type: `String`
+Prefix for script
+
 
