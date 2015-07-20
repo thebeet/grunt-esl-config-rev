@@ -28,6 +28,7 @@ module.exports = function(grunt) {
             length: 8,
             config_tpl: 'static/js/config.js.tpl',
             MAP_BLOCK_RE: /\/\*map start\*\/[\s\S]*\/\*map end\*\//,
+            prefix: ''
         });
 
         var done = this.async();
@@ -82,7 +83,11 @@ module.exports = function(grunt) {
                 mapping.forEach(function (item) {
                     urlArgs[item[0].replace(/\.js$/, '')] = 'v=' + item[1];
                 });
-                console.log(urlArgs);
+                var preFixUrlArgs = {};
+                for (var k in urlArgs) {
+                    preFixUrlArgs[options.prefix + k] = urlArgs[k];
+                }
+                console.log(preFixUrlArgs);
                 var config = '';
                 if (grunt.file.exists(options.config_tpl)) {
                     config = grunt.file.read(options.config_tpl);
@@ -91,7 +96,7 @@ module.exports = function(grunt) {
 
                 config = grunt.template.process(MAP_TPL, {
                     data: {
-                        urlArgs: JSON.stringify(urlArgs, null, '\t')
+                        urlArgs: JSON.stringify(preFixUrlArgs, null, '\t')
                     }
                 }) + '\n' + config;
                 grunt.file.write(dest, config);
